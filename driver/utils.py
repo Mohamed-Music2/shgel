@@ -25,8 +25,8 @@ from pytgcalls.types import Update
 keyboard = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton(text="-› تَحَكَمَ", callback_data="stream_menu_panel"),
-            InlineKeyboardButton(text="-› اެغِݪاެقِ", callback_data="set_close"),
+            InlineKeyboardButton(text="-› تحكم", callback_data="stream_menu_panel"),
+            InlineKeyboardButton(text="-› اغلاق", callback_data="set_close"),
         ]
     ]
 )
@@ -136,7 +136,7 @@ async def stream_end_handler(_, u: Update):
         else:
             await bot.send_message(
                 chat_id,
-                f"-›  **تَشغِيݪ اެݪاغنية اެݪتي فَي اެݪانتظاࢪ**\n\n-›  **اެݪاެسِمَ:** [{queue[0]}]({queue[1]}) | `{queue[2]}`\n🦴 **اެݪدَࢪدَشِةَ:** `{chat_id}`",
+                f"-›  **تشغيل الاغنية التي في الانتظار**\n\n-›  **الاسم:** [{queue[0]}]({queue[1]}) | `{queue[2]}`\n🦴 **اެݪدَࢪدَشِةَ:** `{chat_id}`",
                 disable_web_page_preview=True,
                 reply_markup=keyboard,
             )
