@@ -153,7 +153,7 @@ async def skip(c: Client, m: Message):
             chat_id,
             photo=image,
             reply_markup=InlineKeyboardMarkup(buttons),
-            caption=f"⏭ **تم بنجاح** التخظي الي المسار التالي.\n\nالاسم❤️‍🔥 **الاسم:** [{queue[0]}]({queue[1]})\n❤️‍🔥 **اެݪدࢪدشةه:** `{chat_id}`\n🦴 **طݪب اެݪحݪۅ:** {requester}",
+            caption=f"⏭ **تم بنجاح** التخظي الي المسار التالي.\n\nالاسم❤️‍🔥 **الاسم:** [{queue[0]}]({queue[1]})\n❤️‍🔥 **المحادثه:** `{chat_id}`\n🥇 **طلب من:** {requester}",
         )
         remove_if_exists(image)
 
@@ -182,7 +182,7 @@ async def mute(client, m: Message):
 
 
 @Client.on_message(
-    command(["سولف", f"unmute@{BOT_USERNAME}", "vunmute"]) & other_filters
+    command(["استئناف", f"unmute@{BOT_USERNAME}", "vunmute"]) & other_filters
 )
 @authorized_users_only
 @check_blacklist()
@@ -371,6 +371,6 @@ async def cbskip(_, query: CallbackQuery):
             photo=image,
             reply_markup=InlineKeyboardMarkup(buttons),
             caption=f"⏭ **
-            "** تم اެݪتخطي اެݪى اݪمساࢪ اެݪتالي.\n\n❤️‍🔥 **Name:** [{queue[0]}]({queue[1]})\n❤️‍🔥 **Chat:** `{chat_id}`\n🦴 **طݪب اެݪحݪۅ:** {requester}",
+            "** تم التخطي الي المساࢪ التالي.\n\n❤️‍🔥 **Name:** [{queue[0]}]({queue[1]})\n❤️‍🔥 **Chat:** `{chat_id}`\n🥇 **طلب من:** {requester}",
         )
         remove_if_exists(image)
