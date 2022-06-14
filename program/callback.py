@@ -39,20 +39,22 @@ from config import (
 async def start_set(_, query: CallbackQuery):
     await query.answer("home start")
     await query.edit_message_text(
-        f"""ههݪاެ حبيب [{query.message.chat.first_name}](tg://user?id={query.message.chat.id}) ❤️‍🔥\n
-اެناެ بَۅت بَمميࢪ࣪اެتَ متَعدَدةَ ݪتشغِيݪ اެݪاغاެنِي فَي اެݪمَجمَۅعاتَ 🥇.
+        f"""مرحبا [{query.message.chat.first_name}](tg://user?id={query.message.chat.id}) ❤️‍🔥\n
+❤️‍🔥 انا اقوى بوت  متطور لتشغيل الاغاني. 
 
--› [ᔕOᑌᖇᑕE ᒍEᑭTᕼOᑎ 𖢅](http://t.me/Jepthon)
+لتشغيل الاغاني في المجموعات يمكنك معرفة استخدامي عن طريق زر الاوامر.
+
+-› [𝑪𝑯𝑨𝑵𝑵𝑬𝑳 𝑺𝑶𝑼𝑹𝑪𝑬𖢅](https://t.me/D_o_m_A12)
 """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🥇 اެضفني اެݪى مجمۅعتَك 🥇", url=f"https://t.me/{me_bot.username}?startgroup=true")
+                    InlineKeyboardButton("🥇 اضف البوت الي مجموعتك  🥇", url=f"https://t.me/{me_bot.username}?startgroup=true")
                 ],[
-                    InlineKeyboardButton("طࢪيقة اެݪتشغيݪ", callback_data="user_guide")
+                    InlineKeyboardButton("طريقه الشتغيل", callback_data="user_guide")
                 ],[
-                    InlineKeyboardButton(" اެݪاۅاެمࢪ", callback_data="command_list"),
-                    InlineKeyboardButton("🦎 اެݪمطَۅࢪ", url=f"https://t.me/{OWNER_USERNAME}")
+                    InlineKeyboardButton(" الاوامر", callback_data="command_list"),
+                    InlineKeyboardButton("🥇 المطور", url=f"https://t.me/lMl4ll")
                 ],
             ]
         ),
@@ -68,16 +70,16 @@ async def guide_set(_, query: CallbackQuery):
         f"""طريقة التشغيل ، تابع في الاسفل ↓
 
 1-› أولا ، أضفني الى مجموعتك
-2-› بعد ذالك قم برفعي كمشرف واعطائي صلاحيات مثل باقي البشر.
+2-› بعد ذالك قم برفعي كمشرف واعطائي الصلاحيات .
 3-› بعد ذالك اكتب `تحديث` بيانات البوت
-3-› اضف سيدي ومولاي @{me_user.username} في مجموعتك او اكتب `انضم او ادخل` لدعوة المساعد
-4-› اذ لم تستطيع اضافة المساعد او واجهت مشاكل تحدث مع رئيس الوزراء  .
+3-› @{me_user.username} في مجموعتك او اكتب `انضمام او ادخل` لدعوة الحساب المساعد
+4-› @lMl4ll اذ لم تستطيع اضافة الحساب المساعد او واجهت بعض مشاكل تحدث مع  .
 
 """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("-› ࢪجَۅعَ", callback_data="home_start")
+                    InlineKeyboardButton("-› رجوع", callback_data="home_start")
                 ],
             ]
         ),
@@ -98,7 +100,7 @@ async def commands_set(_, query: CallbackQuery):
                 [
                     InlineKeyboardButton("-› اوامر البوت", callback_data="user_command"),
                 ],[             
-                    InlineKeyboardButton("-› ࢪجَۅعَ", callback_data="home_start")
+                    InlineKeyboardButton("-› رجوع", callback_data="home_start")
                 ],
             ]
         ),
@@ -127,12 +129,12 @@ async def user_set(_, query: CallbackQuery):
 -› توقف - لتوقف الاغنية مؤقتاً
 -› استمرار - لتشغيل الاغنية الحالية
 -› بنك - لإضهار بنك البوت
--› انضم - لدعوة حساب المساعد
+-› انضمام - لدعوة حساب المساعد
 -› اطلع - لخروج حساب المساعد من المجموعه
 
-. شكراً لقرائتك الاوامر - أتمنى لك يوماً تعيساً 🦴 """,
+. شكراً لقرائتك الاوامر""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("-› ࢪجَۅعَ", callback_data="command_list")]]
+            [[InlineKeyboardButton("-› رجوع", callback_data="command_list")]]
         ),
     )
 
@@ -143,7 +145,7 @@ async def at_set_markup_menu(_, query: CallbackQuery):
     user_id = query.from_user.id
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 وخر ايدك لاتبعبص محد يكدر يدوس هنا بس الي عنده صلاحية المكالمات !", show_alert=True)
+        return await query.answer("💡 وحده صاحب الزر يمكنه استخدام هذا الامر !", show_alert=True)
     chat_id = query.message.chat.id
     user_id = query.message.from_user.id
     buttons = menu_markup(user_id)
@@ -151,7 +153,7 @@ async def at_set_markup_menu(_, query: CallbackQuery):
         await query.answer("تم فتح لوحة التحكم 👍🏻")
         await query.edit_message_reply_markup(reply_markup=InlineKeyboardMarkup(buttons))
     else:
-        await query.answer("لضوج ، ماكو شي مشتغݪ ياެعيني🌵.", show_alert=True)
+        await query.answer("❌ لايوجد هناك اغنيه شغاله !.", show_alert=True)
 
 
 @Client.on_callback_query(filters.regex("stream_home_panel"))
@@ -159,7 +161,7 @@ async def at_set_markup_menu(_, query: CallbackQuery):
 async def is_set_home_menu(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 وخر ايدك لاتبعبص محد يكدر يدوس هنا بس الي عنده صلاحية المكالمات !", show_alert=True)
+        return await query.answer("💡 وحده صاحب الزر يمكنه استخدام هذا الامر !", show_alert=True)
     await query.answer("control panel closed")
     user_id = query.message.from_user.id
     buttons = stream_markup(user_id)
@@ -171,7 +173,7 @@ async def is_set_home_menu(_, query: CallbackQuery):
 async def on_close_menu(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 وخر ايدك لاتبعبص محد يكدر يدوس هنا بس الي عنده صلاحية المكالمات !", show_alert=True)
+        return await query.answer("💡 وحده صاحب الزر يمكنه استخدام هذا الامر !", show_alert=True)
     await query.message.delete()
 
 
