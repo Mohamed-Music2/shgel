@@ -84,20 +84,21 @@ async def start_(c: Client, message: Message):
     user_id = message.from_user.id
     await add_served_user(user_id)
     await message.reply_text(
-        f"""ههݪاެ حبيب {message.from_user.mention()} ❤️‍🔥\n
-اެناެ بَۅت بَمميࢪ࣪اެتَ متَعدَدةَ ݪتشغِيݪ اެݪاغاެنِي فَي اެݪمَجمَۅعاتَ 🥇.
+        f"""مرحبا {message.from_user.mention()} ❤️‍🔥\n
+🥇 انا بوت متميز لتشغيل الاغاني في المحادثه المرئيه.
 
--› [ᔕOᑌᖇᑕE ᒍEᑭTᕼOᑎ 𖢅](http://t.me/jepthon)
+-› [𝑺𝑶𝑼𝑹𝑪𝑬](https://t.me/D_o_m_A12)
+-› [𝑮𝑹𝑶𝑼𝑷 𝑺𝑼𝑷𝑷𝑶𝑹𝑻](https://t.me/BarEisa)
 """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🥇 اެضفني اެݪى مجمۅعتَك 🥇", url=f"https://t.me/{me_bot.username}?startgroup=true")
+                    InlineKeyboardButton("🥇 اضفني الي مجمۅعتك 🥇", url=f"https://t.me/{me_bot.username}?startgroup=true")
                 ],[
-                    InlineKeyboardButton("طࢪيقة اެݪتشغيݪ", callback_data="user_guide")
+                    InlineKeyboardButton("🥇 طريقة التشغيل", callback_data="user_guide")
                 ],[
-                    InlineKeyboardButton("اެݪاۅاެمࢪ", callback_data="command_list"),
-                    InlineKeyboardButton("🦎 اެݪمطَۅࢪ", url=f"https://t.me/{OWNER_USERNAME}")                    
+                    InlineKeyboardButton("🥇 الاوامر", callback_data="command_list"),
+                    InlineKeyboardButton("🥇 المطور", url=f"https://t.me/{OWNER_USERNAME}")                    
                 ],
             ]
         ),
@@ -180,7 +181,7 @@ async def new_chat(c: Client, m: Message):
             if member.id == me_bot.id:
                 return await m.reply(
                     "🎗️ وأخيرا ضفتوني ، طبعاً شكراً للي ضافني !\n\n"                 
-                    "👍🏻 اضغط على زر الاوامر حتى تشوف شلون تشغلني ",
+                    "👍🏻اضغط على زر الاوامر حتى تعرف كيفيه الشتغيل ",
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
