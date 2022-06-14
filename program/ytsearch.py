@@ -31,13 +31,13 @@ async def youtube_search(_, message: Message):
     if len(message.command) < 2:
         return await message.reply_text("/search **needs an argument !**")
     query = message.text.split(None, 1)[1]
-    m = await message.reply_text("🦴 **جاري البحث...**")
+    m = await message.reply_text("🥇 **جاري البحث...**")
     results = YoutubeSearch(query, max_results=5).to_dict()
     text = ""
     for i in range(5):
         try:
             text += f"-› **الاسم:** __{results[i]['title']}__\n"
-            text += f"-› **المدو:** `{results[i]['duration']}`\n"
+            text += f"-› **المده:** `{results[i]['duration']}`\n"
             text += f"-› **المشاهدات:** `{results[i]['views']}`\n"
             text += f"-› **القناة:** {results[i]['channel']}\n"
             text += f"-› **الرابط:** https://www.youtube.com{results[i]['url_suffix']}\n\n"
