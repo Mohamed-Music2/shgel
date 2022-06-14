@@ -38,7 +38,7 @@ ydl_opts = {
 @Client.on_message(command(["بحث", f"ب"]) & ~filters.edited)
 def song(_, message):
     query = " ".join(message.command[1:])
-    m = message.reply("❤️‍🔥 جَاެࢪي اެݪبَحثَ...")
+    m = message.reply("❤️‍🔥 جاري البحث...")
     ydl_ops = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -54,7 +54,7 @@ def song(_, message):
         m.edit("❤️‍🔥 لم اجد شيئا.\n\nاعطني اسم المغني كامل.")
         print(str(e))
         return
-    m.edit("❤️‍🔥 تَحمَيݪ اެݪمݪف...")
+    m.edit("❤️‍🔥 تحميل الملف...")
     try:
         with yt_dlp.YoutubeDL(ydl_ops) as ydl:
             info_dict = ydl.extract_info(link, download=False)
@@ -65,7 +65,7 @@ def song(_, message):
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(float(dur_arr[i])) * secmul
             secmul *= 60
-        m.edit("❤️‍🔥 ࢪفَع اݪمَݪف...")
+        m.edit("❤️‍🔥 رفع الملف...")
         message.reply_audio(
             audio_file,
             caption=rep,
@@ -76,7 +76,7 @@ def song(_, message):
         )
         m.delete()
     except Exception as e:
-        m.edit("ℹ️ البوت لايعمل من فضلك إبلغ المطور بشأني @lMl10l")
+        m.edit("ℹ️ البوت لايعمل من فضلك إبلغ المطور بشأني @lMl4ll")
         print(e)
 
     try:
@@ -114,14 +114,14 @@ async def vsong(client, message):
     except Exception as e:
         print(e)
     try:
-        msg = await message.reply("❤️‍🔥 جَاެࢪي اެݪبَحثَ...")
+        msg = await message.reply("❤️‍🔥 جاري البحث...")
         with YoutubeDL(ydl_opts) as ytdl:
             ytdl_data = ytdl.extract_info(link, download=True)
             file_name = ytdl.prepare_filename(ytdl_data)
     except Exception as e:
         return await msg.edit(f"🚫 **error:** {e}")
     preview = wget.download(thumbnail)
-    await msg.edit("❤️‍🔥 تَحَمَيَݪ اެݪمَݪفَ...")
+    await msg.edit("❤️‍🔥 تحميل الملف...")
     await message.reply_video(
         file_name,
         duration=int(ytdl_data["duration"]),
