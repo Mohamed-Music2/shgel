@@ -167,7 +167,7 @@ async def play_tg_file(c: Client, m: Message, replied: Message = None, link: str
                     reply_markup=InlineKeyboardMarkup(buttons),
                     caption=f"-› **اެݪاسم:** [{songname}]({link}) | `music`\n"
                             f"-› **اެݪمدةه:** `{duration}`\n"
-                            f"-› **طݪب اެݪحݪۅ:** {requester}",
+                            f"-› **طݪب من:** {requester}",
                 )
                 remove_if_exists(image)
             except (NoActiveGroupCall, GroupCallNotFound):
@@ -182,7 +182,7 @@ async def play_tg_file(c: Client, m: Message, replied: Message = None, link: str
         )
 
 
-@Client.on_message(command(["شغل", f"ت"]) & other_filters)
+@Client.on_message(command(["شغل", f"تشغيل"]) & other_filters)
 @check_blacklist()
 @require_admin(permissions=["can_manage_voice_chats", "can_delete_messages", "can_invite_users"], self=True)
 async def audio_stream(c: Client, m: Message):
